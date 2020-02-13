@@ -1,17 +1,31 @@
 import React from "react";
 import VideoComponent from "./VideoComponent";
+import Dropdown from "./Dropdown";
 
 class Recipe extends React.Component {
   constructor() {
     super();
     this.state = {
       loaded: false,
-      recipe: ""
+      recipe: "",
+      categories: [],
+      randomId: "",
+      data: []
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  componentDidMount() {
+    fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          categories: data.categories.map(item => item.strCategory)
+        });
+      });
+  }
+
+  fetchRecipe() {
     fetch("https://www.themealdb.com/api/json/v1/1/random.php")
       .then(response => response.json())
       .then(data => {
@@ -20,6 +34,38 @@ class Recipe extends React.Component {
           recipe: data.meals[0]
         });
       });
+  }
+
+  handleClick(event) {
+    let name = event.target.name;
+    var randomItemId = "";
+    if (name === "random") {
+      fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+        .then(response => response.json())
+        .then(data => {
+          this.setState({
+            loaded: true,
+            recipe: data.meals[0]
+          });
+        });
+    } else {
+      fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`)
+        .then(response => response.json())
+        .then(data => {
+          randomItemId =
+            data.meals[Math.floor(Math.random() * data.meals.length)].idMeal;
+          return fetch(
+            `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${randomItemId}`
+          );
+        })
+        .then(response => response.json())
+        .then(data => {
+          this.setState({
+            loaded: true,
+            recipe: data.meals[0]
+          });
+        });
+    }
   }
 
   render() {
@@ -41,14 +87,20 @@ class Recipe extends React.Component {
     let unloadedBlock = (
       <div className="unloaded">
         <h1 className="display-3">Random recipe generator</h1>
-        <p>Hit a button to get one of the delicious recipes</p>
-        <button
+        <p>
+          Choose category and hit a button to get one of the delicious recipes
+        </p>
+        <Dropdown
+          categories={this.state.categories}
+          handleClick={this.handleClick}
+        />
+        {/* <button
           type="button"
           className="btn btn-primary btn-lg"
           onClick={this.handleClick}
         >
           Get a recipe
-        </button>
+        </button> */}
       </div>
     );
 
@@ -62,6 +114,7 @@ class Recipe extends React.Component {
             <p className="desktop">
               Hit a button to get one of the delicious recipes
             </p>
+
             <button
               type="button"
               className="btn btn-primary btn-sm"

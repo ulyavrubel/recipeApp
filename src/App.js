@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Recipe from "./Recipe";
+import Recipe1 from "./Recipe1";
 
 class App extends React.Component {
   constructor() {
@@ -10,7 +10,7 @@ class App extends React.Component {
   }
 
   render() {
-    return <Recipe />;
+    return <Recipe1 />;
   }
 }
 
