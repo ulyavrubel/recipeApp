@@ -7,12 +7,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30vh;
+  /* margin-top: 30vh; */
 }
 
 .unloaded p {
   margin-top: 2rem;
   font-size: 1.5rem;
+}
+
+.dropdown-menu {
+  width: 100%;
 }
 
 .navbar {
@@ -21,6 +25,10 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: white;
+}
+
+.navbar-brand {
+  cursor: pointer;
 }
 
 .navbar-button-block {
@@ -88,10 +96,10 @@ footer {
   .mobile {
     display: inline;
   }
-
+  /* 
   .unloaded {
     margin-top: 25vh;
-  }
+  } */
   .unloaded h1,
   p {
     text-align: center;

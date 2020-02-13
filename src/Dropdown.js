@@ -4,14 +4,15 @@ function Dropdown(props) {
   return (
     <div className="dropdown">
       <button
-        className="btn btn-primary dropdown-toggle"
+        className={props.classNameButton}
         type="button"
         id="dropdownMenuButton"
         data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
+        onClick={props.handlerMarginTop}
       >
-        Choose recipe category
+        Choose <span className="desktop">recipe </span>category
       </button>
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a
