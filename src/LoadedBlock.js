@@ -1,5 +1,4 @@
 import React from "react";
-import Dropdown from "./Dropdown";
 import VideoComponent from "./VideoComponent";
 import Footer from "./Footer";
 

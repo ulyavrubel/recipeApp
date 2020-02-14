@@ -6,7 +6,8 @@ class UnloadedBlock extends React.Component {
     super(props);
     this.state = {
       categories: [],
-      unloadedMarginTop: "25vh"
+      unloadedMarginTop: "25vh",
+      unloadedHeaderP: "block"
     };
     this.handlerMarginTop = this.handlerMarginTop.bind(this);
   }
@@ -22,7 +23,7 @@ class UnloadedBlock extends React.Component {
   }
 
   handlerMarginTop() {
-    this.setState({ unloadedMarginTop: "5vh" });
+    this.setState({ unloadedMarginTop: "5vh", unloadedHeaderP: "none" });
   }
 
   render() {
@@ -32,7 +33,7 @@ class UnloadedBlock extends React.Component {
         style={{ marginTop: this.state.unloadedMarginTop }}
       >
         <h1 className="display-3">Random recipe generator</h1>
-        <p>
+        <p style={{ display: this.state.unloadedHeaderP }}>
           Choose category and hit a button to get one of the delicious recipes
         </p>
         <p>{this.props.state.testText}</p>

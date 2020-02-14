@@ -10,6 +10,7 @@ class Recipe extends React.Component {
       loaded: false,
       categories: [],
       unloadedMarginTop: "25vh",
+      unloadedHeaderP: "block",
       targetCategory: ""
     };
     this.handleClick = this.handleClick.bind(this);
@@ -32,7 +33,11 @@ class Recipe extends React.Component {
   }
 
   handleNavHeaderClick() {
-    this.setState({ loaded: false, unloadedMarginTop: "25vh" });
+    this.setState({
+      loaded: false,
+      unloadedMarginTop: "25vh",
+      unloadedHeaderP: "block"
+    });
   }
 
   render() {

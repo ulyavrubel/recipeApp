@@ -5,10 +5,10 @@ function NavBar(props) {
   return (
     <nav className="navbar fixed-top navbar-light bg-light">
       <div>
-        <a className="navbar-brand" onClick={props.onClick}>
+        <div id="navHeader" className="navbar-brand" onClick={props.onClick}>
           <span className="desktop">Random recipe </span>
           <span className="Mobile">Recipe </span>generator
-        </a>
+        </div>
       </div>
       <div className="navbar-button-block">
         <p className="desktop">

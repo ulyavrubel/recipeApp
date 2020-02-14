@@ -15,25 +15,25 @@ function Dropdown(props) {
         Choose <span className="desktop">recipe </span>category
       </button>
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a
+        <button
           className="dropdown-item"
-          href="#"
-          name="random"
+          type="button"
           onClick={props.handleClick}
+          name="random"
         >
           Random
-        </a>
+        </button>
         {props.categories.map(item => {
           return (
-            <a
+            <button
               className="dropdown-item"
-              href="#"
+              type="button"
               key={item}
               name={item}
               onClick={props.handleClick}
             >
               {item}
-            </a>
+            </button>
           );
         })}
       </div>

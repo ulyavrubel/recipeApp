@@ -4,7 +4,12 @@ function Footer(props) {
   return (
     <footer>
       <p>
-        <a href={props.href} className="text-primary" target="_blank">
+        <a
+          href={props.href}
+          className="text-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Recipe source
         </a>
       </p>
@@ -13,6 +18,7 @@ function Footer(props) {
           href="https://www.themealdb.com/api.php"
           className="text-secondary"
           target="_blank"
+          rel="noopener noreferrer"
         >
           API source
         </a>
