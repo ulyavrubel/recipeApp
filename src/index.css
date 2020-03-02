@@ -19,6 +19,10 @@ body {
   width: 100%;
 }
 
+#dropdownMenuButton {
+  transform: none;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -27,9 +31,6 @@ body {
   background-color: white;
 }
 
-.navbar-brand {
-  cursor: pointer;
-}
 #navHeader {
   background-color: rgba(0, 0, 0, 0);
   box-sizing: border-box;
@@ -51,7 +52,6 @@ body {
   text-size-adjust: 100%;
   touch-action: manipulation;
   white-space: nowrap;
-  width: 289.075px;
   -webkit-box-direction: normal;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -68,6 +68,22 @@ body {
 .navbar-button-block p {
   text-align: center;
   margin: 0 15px 0 0;
+}
+
+#auth-buttons {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#dropdownMenuButtonSignUp {
+  margin-left: 5px;
+}
+
+.dropdown-menu-right {
+  min-width: 15rem;
 }
 
 .recipeContainer {

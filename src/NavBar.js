@@ -1,13 +1,14 @@
 import React from "react";
 import Dropdown from "./Dropdown";
+import Auth from "./Auth";
 
 function NavBar(props) {
   return (
-    <nav className="navbar fixed-top navbar-light bg-light">
+    <nav className="navbar fixed-top navbar-light ">
       <div>
         <div id="navHeader" className="navbar-brand" onClick={props.onClick}>
           <span className="desktop">Random recipe </span>
-          <span className="Mobile">Recipe </span>generator
+          <span className="mobile">Recipe </span>generator
         </div>
       </div>
       <div className="navbar-button-block">
@@ -19,6 +20,7 @@ function NavBar(props) {
           handleClick={props.handleClick}
           classNameButton="btn btn-primary btn-sm dropdown-toggle"
         />
+        <Auth />
       </div>
     </nav>
   );
