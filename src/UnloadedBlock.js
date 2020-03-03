@@ -1,5 +1,6 @@
 import React from "react";
 import Dropdown from "./Dropdown";
+import AuthComponent from "./AuthComponent";
 
 class UnloadedBlock extends React.Component {
   constructor(props) {
@@ -28,11 +29,18 @@ class UnloadedBlock extends React.Component {
 
   render() {
     return (
-      <div
-        className="unloaded"
-        style={{ marginTop: this.state.unloadedMarginTop }}
-      >
-        <h1 className="display-3">Random recipe generator</h1>
+      <div className="unloaded">
+        <nav className="navbar fixed-top navbar-light ">
+          <div className="navbar-button-block">
+            <AuthComponent />
+          </div>
+        </nav>
+        <h1
+          style={{ marginTop: this.state.unloadedMarginTop }}
+          className="display-3"
+        >
+          Random recipe generator
+        </h1>
         <p style={{ display: this.state.unloadedHeaderP }}>
           Choose category and hit a button to get one of the delicious recipes
         </p>

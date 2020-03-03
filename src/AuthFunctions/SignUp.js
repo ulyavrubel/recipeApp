@@ -1,13 +1,5 @@
 import React from "react";
-// Firebase App (the core Firebase SDK) is always required and
-// must be listed before other Firebase SDKs
-import * as firebase from "firebase/app";
-
-// Add the Firebase services that you want to use
-import "firebase/auth";
-import "firebase/firestore";
-
-// const auth = firebase.auth();
+import appAuth from "../FirebaseInit";
 
 class SignUp extends React.Component {
   constructor() {
@@ -17,25 +9,26 @@ class SignUp extends React.Component {
       password: ""
     };
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    console.log(event);
+    event.preventDefault();
     this.setState({
       [event.target.id]: event.target.value
     });
   }
 
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //   auth
-  //     .createUserWithEmailAndPassword(this.state.email, this.state.password)
-  //     .then(cred => {
-  //       console.log(cred);
-  //     })
-  //     .catch(err => console.log(err.message));
-  // }
+  handleSubmit(event) {
+    event.preventDefault();
+    appAuth
+      .auth()
+      .createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then(cred => {
+        console.log(cred);
+      })
+      .catch(err => console.log(err.message));
+  }
 
   render() {
     return (
@@ -55,7 +48,7 @@ class SignUp extends React.Component {
           style={{ padding: "17px" }}
           aria-labelledby="dropdownMenuButtonSignUp"
         >
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label htmlFor="email">Email address</label>
               <input
@@ -77,11 +70,7 @@ class SignUp extends React.Component {
               ></input>
             </div>
 
-            <button
-              type="submit"
-              className="btn btn-secondary btn-sm "
-              onSubmit={this.handleSubmit}
-            >
+            <button type="submit" className="btn btn-secondary btn-sm ">
               Sign up
             </button>
           </form>

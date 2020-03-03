@@ -1,6 +1,6 @@
 import React from "react";
 import Dropdown from "./Dropdown";
-import Auth from "./Auth";
+import AuthComponent from "./AuthComponent";
 
 function NavBar(props) {
   return (
@@ -20,7 +20,7 @@ function NavBar(props) {
           handleClick={props.handleClick}
           classNameButton="btn btn-primary btn-sm dropdown-toggle"
         />
-        <Auth />
+        <AuthComponent />
       </div>
     </nav>
   );
