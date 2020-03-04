@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import SignIn from "./AuthFunctions/SignIn";
 import SignUp from "./AuthFunctions/SignUp";
-import appAuth from "./FirebaseInit";
+import { appAuth } from "./FirebaseInit";
 import { AuthContext } from "./AuthProvider";
 import { BrowserRouter as Switch, Route, Link } from "react-router-dom";
 import Account from "./Account";

@@ -1,6 +1,7 @@
 import React from "react";
 import VideoComponent from "./VideoComponent";
 import Footer from "./Footer";
+import FavButton from "./FavButton";
 
 class LoadedBlock extends React.Component {
   constructor(props) {
@@ -86,7 +87,12 @@ class LoadedBlock extends React.Component {
               src={this.state.recipe.strMealThumb}
               alt={this.state.recipe.strMeal}
             ></img>
-            <ul className="list-unstyled">{ingredientsList}</ul>
+            <div id="listFavButtonContainer">
+              <ul className="list-unstyled">{ingredientsList}</ul>
+              <div>
+                <FavButton className="mobile" recipe={this.state.recipe} />
+              </div>
+            </div>
             <p>{this.state.recipe.strInstructions}</p>
           </div>
 
@@ -96,6 +102,7 @@ class LoadedBlock extends React.Component {
               src={this.state.recipe.strMealThumb}
               alt={this.state.recipe.strMeal}
             ></img>
+            <FavButton className="desktop" recipe={this.state.recipe} />
           </div>
         </div>
         <div className="row justify-content-md-center video-div">

@@ -12,14 +12,19 @@ function NavBar(props) {
         </div>
       </div>
       <div className="navbar-button-block">
-        <p className="desktop">
-          Hit a button to get one of the delicious recipes
-        </p>
-        <Dropdown
-          categories={props.state.categories}
-          handleClick={props.handleClick}
-          classNameButton="btn btn-primary btn-sm dropdown-toggle"
-        />
+        {props.state.loaded ? (
+          <div className="navbar-button-block">
+            <p className="desktop">
+              Hit a button to get one of the delicious recipes
+            </p>
+            <Dropdown
+              handleClick={props.handleClick}
+              classNameButton="btn btn-primary btn-sm dropdown-toggle"
+              direction="dropdown"
+            />
+          </div>
+        ) : null}
+
         <AuthComponent />
       </div>
     </nav>

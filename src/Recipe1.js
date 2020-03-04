@@ -17,16 +17,6 @@ class Recipe extends React.Component {
     this.handleNavHeaderClick = this.handleNavHeaderClick.bind(this);
   }
 
-  componentDidMount() {
-    fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          categories: data.categories.map(item => item.strCategory)
-        });
-      });
-  }
-
   handleClick(event) {
     let name = event.target.name;
     this.setState({ targetCategory: name, loaded: true });
@@ -41,19 +31,21 @@ class Recipe extends React.Component {
   }
 
   render() {
-    return !this.state.loaded ? (
-      <UnloadedBlock state={this.state} handleClick={this.handleClick} />
-    ) : (
+    return (
       <div>
         <NavBar
           state={this.state}
           handleClick={this.handleClick}
           onClick={this.handleNavHeaderClick}
         />
-        <LoadedBlock
-          state={this.state}
-          handleNavHeaderClick={this.handleNavHeaderClick}
-        />
+        {!this.state.loaded ? (
+          <UnloadedBlock state={this.state} handleClick={this.handleClick} />
+        ) : (
+          <LoadedBlock
+            state={this.state}
+            handleNavHeaderClick={this.handleNavHeaderClick}
+          />
+        )}
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React from "react";
-import appAuth from "../FirebaseInit";
+import { appAuth } from "../FirebaseInit";
 
 class SignUp extends React.Component {
   constructor() {

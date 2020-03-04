@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import Recipe1 from "./Recipe1";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { AuthProvider } from "./AuthProvider";
+import Recipe1 from "./Recipe1";
 import Account from "./Account";
 
 class App extends React.Component {
