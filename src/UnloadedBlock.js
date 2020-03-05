@@ -35,7 +35,7 @@ class UnloadedBlock extends React.Component {
         >
           Random recipe generator
         </h1>
-        <p style={{ display: this.state.unloadedHeaderP }}>
+        <p id="unloaded-p" style={{ display: this.state.unloadedHeaderP }}>
           Choose category and hit a button to get one of the delicious recipes
         </p>
         <p>{this.props.state.testText}</p>

@@ -145,6 +145,22 @@ footer {
   display: none;
 }
 
+#account-content {
+  margin-top: 60px;
+  margin-left: 16px;
+  margin-right: 16px;
+  display: flex;
+  flex-direction: row;
+}
+
+#fav-list {
+  width: 540px;
+}
+
+.card-img {
+  cursor: pointer;
+}
+
 @media (max-width: 900px) {
   .desktop {
     display: none;
@@ -153,8 +169,7 @@ footer {
     display: inline;
   }
 
-  .unloaded h1,
-  p {
+  #unloaded-p {
     text-align: center;
   }
 
@@ -187,6 +202,10 @@ footer {
 
   footer p {
     text-align: left;
+  }
+  #account-content {
+    display: flex;
+    flex-direction: column;
   }
 }
 

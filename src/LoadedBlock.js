@@ -2,6 +2,7 @@ import React from "react";
 import VideoComponent from "./VideoComponent";
 import Footer from "./Footer";
 import FavButton from "./FavButton";
+import { getIngredients } from "./getIngredients";
 
 class LoadedBlock extends React.Component {
   constructor(props) {
@@ -45,22 +46,6 @@ class LoadedBlock extends React.Component {
     }
   }
 
-  getIngredients() {
-    let ingredients = [];
-    for (let i = 1; i <= 20; i++) {
-      if (this.state.recipe[`strIngredient${i}`]) {
-        ingredients.push(
-          this.state.recipe[`strIngredient${i}`] +
-            " - " +
-            this.state.recipe[`strMeasure${i}`]
-        );
-      }
-    }
-    return ingredients.map(
-      ingredient => (ingredient = <li key={ingredient}>{ingredient}</li>)
-    );
-  }
-
   componentDidMount() {
     this.fetchRecipe(this.props.state.targetCategory);
   }
@@ -76,7 +61,7 @@ class LoadedBlock extends React.Component {
   }
 
   render() {
-    let ingredientsList = this.getIngredients();
+    let ingredientsList = getIngredients(this.state.recipe);
     return (
       <div>
         <div className="recipeContainer">
