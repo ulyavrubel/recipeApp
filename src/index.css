@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -71,6 +75,18 @@ body {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+}
+
+#resetPassword {
+  text-align: right;
+  cursor: pointer;
+  color: red;
+}
+
+#signinButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .loggedout {
@@ -169,6 +185,10 @@ footer {
     display: inline;
   }
 
+  .display-3 {
+    text-align: center;
+  }
+
   #unloaded-p {
     text-align: center;
   }
@@ -206,6 +226,25 @@ footer {
   #account-content {
     display: flex;
     flex-direction: column;
+  }
+  #fav-list {
+    width: 90vw;
+    margin-right: 16px;
+  }
+  .accordion-card {
+    margin-top: 10px;
+  }
+  .accordion-card > .card-header {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+  }
+  .card-header-container2 {
+    margin-left: 10px;
+  }
+  .card-header-container2 > .close,
+  .card-text {
+    align-self: end;
   }
 }
 

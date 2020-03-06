@@ -1,4 +1,5 @@
 import React from "react";
+import * as firebase from "firebase/app";
 import { appAuth } from "../FirebaseInit";
 
 class SignIn extends React.Component {
@@ -10,6 +11,7 @@ class SignIn extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePasswordReset = this.handlePasswordReset.bind(this);
   }
 
   handleChange(event) {
@@ -31,6 +33,45 @@ class SignIn extends React.Component {
         console.log(cred);
       })
       .catch(err => console.log(err.message));
+  }
+
+  handlePasswordReset(event) {
+    console.log(event);
+    console.log(this.state.emailSignIn);
+    if (this.state.emailSignIn !== "") {
+      appAuth
+        .auth()
+        .sendPasswordResetEmail(this.state.emailSignIn)
+        .then(alert(`Email has been sent to ${this.state.emailSignIn}`))
+        .catch(err => console.log(err.message));
+    } else {
+      alert("Fill in the email field");
+    }
+  }
+
+  googleSignIn() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+    appAuth
+      .auth()
+      .signInWithPopup(provider)
+      .then(function(result) {
+        // // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // // The signed-in user info.
+        // var user = result.user;
+        console.log(token);
+      })
+      .catch(function(error) {
+        // Handle Errors here.
+        // var errorCode = error.code;
+        var errorMessage = error.message;
+        // // The email of the user's account used.
+        // var email = error.email;
+        // // The firebase.auth.AuthCredential type that was used.
+        // var credential = error.credential;
+        console.log(errorMessage);
+      });
   }
 
   render() {
@@ -71,11 +112,28 @@ class SignIn extends React.Component {
                 placeholder="Password"
                 onChange={this.handleChange}
               ></input>
+              <div className="text-right">
+                <a
+                  id="resetPassword"
+                  className="text-right"
+                  onClick={this.handlePasswordReset}
+                >
+                  <small className="text-muted text-right">
+                    Forget password?
+                  </small>
+                </a>
+              </div>
             </div>
-
-            <button type="submit" className="btn btn-secondary btn-sm ">
-              Sign in
-            </button>
+            <div id="signinButtons">
+              <button type="submit" className="btn btn-secondary btn-sm ">
+                Sign in
+              </button>
+              <div
+                className="g-signin2"
+                data-onsuccess="onSignIn"
+                onClick={this.googleSignIn}
+              ></div>
+            </div>
           </form>
         </div>
       </div>

@@ -35,18 +35,35 @@ function Account() {
     if (data.length !== 0) {
       data.forEach(doc => {
         const recipe = doc.data();
+        recipe.id = doc.id;
         setFavRecipes(prev => {
           return [...prev, recipe];
         });
-        console.log(favRecipes);
       });
     }
   }
 
   function handleClick(event) {
     event.preventDefault();
-    console.log(event.target.id);
     setShowRecipe(favRecipes.filter(item => item.idMeal === event.target.id));
+    if (window.document.body.clientWidth > 800) {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  function handleDelete(event) {
+    event.preventDefault();
+
+    appDB
+      .collection("users")
+      .doc(currentUser.uid)
+      .collection("favorites")
+      .doc(event.target.id)
+      .delete()
+      .catch(err => {
+        console.log(err.message);
+      });
+    setFavRecipes([]);
   }
 
   return (
@@ -82,7 +99,15 @@ function Account() {
       </nav>
       <div id="account-content">
         <div id="fav-list">
-          <FavList recipes={favRecipes} onClick={handleClick} />
+          {favRecipes.length > 0 ? (
+            <FavList
+              recipes={favRecipes}
+              onClick={handleClick}
+              onDelete={handleDelete}
+            />
+          ) : (
+            <p>Add recipes to your favorites to see them here</p>
+          )}
         </div>
         {showRecipe !== null ? (
           <div id="fav-recipe">

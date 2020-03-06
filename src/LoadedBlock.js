@@ -87,7 +87,7 @@ class LoadedBlock extends React.Component {
               src={this.state.recipe.strMealThumb}
               alt={this.state.recipe.strMeal}
             ></img>
-            <FavButton className="desktop" recipe={this.state.recipe} />
+            {/* <FavButton className="desktop" recipe={this.state.recipe} /> */}
           </div>
         </div>
         <div className="row justify-content-md-center video-div">
