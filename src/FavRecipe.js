@@ -13,7 +13,7 @@ function FavRecipe(props) {
   }, [props]);
 
   return (
-    <div>
+    <div className="desktop">
       {recipe !== null ? (
         <div>
           <div className="recipeContainer" style={{ marginTop: "0px" }}>

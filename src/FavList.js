@@ -1,5 +1,6 @@
 import React from "react";
 import FavListItem from "./FavListItem";
+import { getIngredients } from "./getIngredients";
 
 function FavList(props) {
   const list = props.recipes.map(recipe => {
@@ -14,6 +15,8 @@ function FavList(props) {
         category={recipe.strCategory}
         onClick={props.onClick}
         onDelete={props.onDelete}
+        ingredients={getIngredients(recipe)}
+        strYoutube={recipe.strYoutube}
       />
     );
   });

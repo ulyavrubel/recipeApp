@@ -113,15 +113,16 @@ class SignIn extends React.Component {
                 onChange={this.handleChange}
               ></input>
               <div className="text-right">
-                <a
+                <button
+                  style={{ marginTop: "3px" }}
                   id="resetPassword"
-                  className="text-right"
+                  className="btn btn-light btn-sm"
                   onClick={this.handlePasswordReset}
                 >
                   <small className="text-muted text-right">
                     Forget password?
                   </small>
-                </a>
+                </button>
               </div>
             </div>
             <div id="signinButtons">

@@ -169,12 +169,13 @@ footer {
   flex-direction: row;
 }
 
-#fav-list {
-  width: 540px;
-}
-
 .card-img {
   cursor: pointer;
+}
+
+.card-body {
+  font-size: 14px;
+  padding: 10px 10px 10px 10px;
 }
 
 @media (max-width: 900px) {
@@ -191,6 +192,8 @@ footer {
 
   #unloaded-p {
     text-align: center;
+    margin-left: 30px;
+    margin-right: 30px;
   }
 
   .recipeContainer {
@@ -234,6 +237,9 @@ footer {
   .accordion-card {
     margin-top: 10px;
   }
+  .card-img {
+    width: 150px;
+  }
   .accordion-card > .card-header {
     background-color: white;
     display: flex;
@@ -254,5 +260,45 @@ footer {
   }
   .unloaded p {
     font-size: 1em;
+  }
+  #navHeader {
+    vertical-align: baseline;
+  }
+  .navbar-button-block {
+    justify-content: space-between;
+  }
+  .navbar-button-block p {
+    font-size: 10px;
+    vertical-align: baseline;
+  }
+  #auth-buttons {
+    margin-left: 5px;
+  }
+  .card-img {
+    width: 100px;
+  }
+  .accordion-card > .card-header {
+    padding: 0px;
+  }
+  .card-title {
+    margin-bottom: 3px;
+  }
+
+  .card-header-container2 > .card-text {
+    font-size: 12px;
+    margin-bottom: 9px;
+  }
+  .card-header-container2 > .close {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  .collapse {
+    font-size: 14px;
+  }
+  .video-div {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    height: auto;
   }
 }

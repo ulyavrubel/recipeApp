@@ -15,7 +15,7 @@ function Dropdown(props) {
         aria-expanded="false"
         onClick={props.handlerMarginTop}
       >
-        Choose <span className="desktop">recipe </span>category
+        Choose <span className="desktop"> recipe </span>category
       </button>
       <div
         className="dropdown-menu"
