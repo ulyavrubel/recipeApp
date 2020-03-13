@@ -1,11 +1,13 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "./AuthProvider";
+import { BrowserRouter as Switch, Route, Link } from "react-router-dom";
 import "./index.css";
 import { appAuth, appDB } from "./FirebaseInit";
+import Recipe1 from "./Recipe1";
 import FavList from "./FavList";
 import FavRecipe from "./FavRecipe";
 
-function Account(props) {
+function Account() {
   const { currentUser } = useContext(AuthContext);
   const [favRecipes, setFavRecipes] = useState([]);
   const [showRecipe, setShowRecipe] = useState(null);
@@ -68,27 +70,31 @@ function Account(props) {
     <div>
       <nav className="navbar fixed-top navbar-light ">
         <div>
-          <div
-            id="navHeader"
-            className="navbar-brand"
-            onClick={props.onHomeClick}
-          >
-            <span className="desktop">Random recipe </span>
-            <span className="mobile">Recipe </span>generator
-          </div>
+          <Link to="/">
+            <div id="navHeader" className="navbar-brand">
+              <span className="desktop">Random recipe </span>
+              <span className="mobile">Recipe </span>generator
+            </div>
+          </Link>
         </div>
         <div className="navbar-button-block">
           <p>{currentUser ? currentUser.email : null}</p>
-
-          <div className="loggedin">
-            <button
-              className="btn btn-outline-secondary btn-sm loggedin"
-              id="logout"
-              onClick={() => appAuth.auth().signOut()}
-            >
-              Log out
-            </button>
-          </div>
+          <Link to="/">
+            <div className="loggedin">
+              <button
+                className="btn btn-outline-secondary btn-sm loggedin"
+                id="logout"
+                onClick={() => appAuth.auth().signOut()}
+              >
+                Log out
+              </button>
+            </div>
+          </Link>
+          <Switch>
+            <Route exact path="/">
+              <Recipe1 />
+            </Route>
+          </Switch>
         </div>
       </nav>
       <div id="account-content">

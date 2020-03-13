@@ -3,8 +3,10 @@ import SignIn from "./AuthFunctions/SignIn";
 import SignUp from "./AuthFunctions/SignUp";
 import { appAuth } from "./FirebaseInit";
 import { AuthContext } from "./AuthProvider";
+import { BrowserRouter as Switch, Route, Link } from "react-router-dom";
+import Account from "./Account";
 
-function AuthComponent(props) {
+function AuthComponent() {
   const { currentUser } = useContext(AuthContext);
 
   return (
@@ -24,13 +26,20 @@ function AuthComponent(props) {
             Log out
           </button>
 
-          <button
-            className="btn btn-outline-secondary btn-sm loggedin"
-            id="account"
-            onClick={props.onAccountClick}
-          >
-            Account
-          </button>
+          <Link to="/account">
+            <button
+              className="btn btn-outline-secondary btn-sm loggedin"
+              id="account"
+            >
+              Account
+            </button>
+          </Link>
+
+          <Switch>
+            <Route exact path="/account">
+              <Account />
+            </Route>
+          </Switch>
         </div>
       )}
     </div>

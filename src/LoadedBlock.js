@@ -73,9 +73,12 @@ class LoadedBlock extends React.Component {
               alt={this.state.recipe.strMeal}
             ></img>
             <div id="listFavButtonContainer">
+              <div className="mobile">
+                <FavButton recipe={this.state.recipe} />
+              </div>
               <ul className="list-unstyled">{ingredientsList}</ul>
-              <div>
-                <FavButton className="mobile" recipe={this.state.recipe} />
+              <div className="desktop">
+                <FavButton recipe={this.state.recipe} />
               </div>
             </div>
             <p>{this.state.recipe.strInstructions}</p>
@@ -87,7 +90,6 @@ class LoadedBlock extends React.Component {
               src={this.state.recipe.strMealThumb}
               alt={this.state.recipe.strMeal}
             ></img>
-            {/* <FavButton className="desktop" recipe={this.state.recipe} /> */}
           </div>
         </div>
         <div className="row justify-content-md-center video-div">
