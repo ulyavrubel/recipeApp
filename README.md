@@ -2,10 +2,10 @@
 Random recipe generator created with React, TheMealDb API and Firebase authentication. Designed with Bootstrap.
 
 ## Contents
-* [General Info](#info)
-* [Live Demo](#demo)
+* [General Info](#general-info)
+* [Live Demo](#live-demo)
 * [Stack](#stack)
-* [Scope of Functionalities](#scope)
+* [Scope of Functionalities](#scope-of-functionalities)
 * [Sources](#sources)
 
 ## General Info
