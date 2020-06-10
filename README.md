@@ -32,4 +32,5 @@ Technologies I used:
 Data is fetching from theMealDB API https://www.themealdb.com/api.php
 
 ### Inspiration
-Inspired by one of Florin Pop's 100 Days - 100 Projects challenges https://www.florin-pop.com/blog/2019/09/100-days-100-projects
+Inspired by one of Florin Pop's 100 Days - 100 Projects challenges 
+https://www.florin-pop.com/blog/2019/09/100-days-100-projects
