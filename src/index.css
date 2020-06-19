@@ -261,6 +261,9 @@ footer {
 }
 
 @media (max-width: 550px) {
+  .dropdown-menu {
+    font-size: x-small;
+  }
   .unloaded h1 {
     font-size: 3em;
   }
